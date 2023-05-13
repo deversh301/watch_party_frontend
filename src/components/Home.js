@@ -23,7 +23,7 @@ export default function Home(props) {
 
     function handle() {
         if(value){
-            axios.post(process.env.REACT_APP_BACKEND_URL+'/add_url', {
+            axios.post('https://watchparty-server.onrender.com'+'/add_url', {
                 yt_url: value,
               })
               .then(function (response) {

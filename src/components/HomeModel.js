@@ -10,7 +10,7 @@ const axios = require('axios').default;
 
 
   function handle(history) {
-        axios.post(process.env.REACT_APP_BACKEND_URL+'/add_members', {
+        axios.post('https://watchparty-server.onrender.com'+'/add_members', {
           group_code:  localStorage.getItem("groupcode"),
           username: 'Host'
       })

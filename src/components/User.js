@@ -26,11 +26,11 @@ export default function User(props) {
         console.log(group_code)
 
         if(group_code && username  ){
-            axios.get(process.env.REACT_APP_BACKEND_URL+'/get_url/'+group_code)
+            axios.get('https://watchparty-server.onrender.com'+'/get_url/'+group_code)
             .then(function (response) {
               console.log(response.data)
               if(response.data.data){
-                    axios.post(process.env.REACT_APP_BACKEND_URL+'/add_members', {
+                    axios.post('https://watchparty-server.onrender.com'+'/add_members', {
                         group_code: group_code,
                         username: username
                     })

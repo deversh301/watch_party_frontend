@@ -16,7 +16,7 @@ import { Form } from 'react-bootstrap';
 
 require('dotenv').config()
 
-console.log(process.env.REACT_APP_BACKEND_URL)
+console.log('https://watchparty-server.onrender.com')
 
 function App() {
   
