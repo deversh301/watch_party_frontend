@@ -5,9 +5,9 @@ import { useHistory , Link } from 'react-router-dom';
 import Singlevideo from './Singlevideo';
 
 
-import axios from 'axios';
+const axios = require('axios').default;
 const { io } = require("socket.io-client");
-const socket = io('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app' );
+const socket = io(process.env.REACT_APP_BACKEND_URL);
 
 
 
@@ -188,9 +188,9 @@ export default function Youtubelist() {
     ]
 
   
-     const apis_key = [ 'AIzaSyDIb_5hADmCA-kwi4GtbnbpjOrPF7FI6Ps' ,
-        'AIzaSyAYCwFiXEyDXuRj83N3C1RXr3ECsW60_Ik'   , 'AIzaSyBto8U-xTbAifRrQ4m7YMYXn27tj1u3qfY' , 
-        'AIzaSyAKIDtIFzl4MwuOBJ-qeEnPPlfREaSC_7Q' ,  'AIzaSyAiwLgkNbagzpZZjMeVem7HrttDJI-ae5I']
+     const apis_key = [ process.env.REACT_APP_FIRST_API ,
+        process.env.REACT_APP_SECOND_API   , process.env.REACT_APP_THIRD_API , 
+        process.env.REACT_APP_FOURTH_API ,  process.env.REACT_APP_FIFTH_API]
 
     const [youtubevideos , setYoutubevideos] = useState([])
     const [value, setValue] = useState("punjabimusic")
@@ -235,7 +235,7 @@ export default function Youtubelist() {
     const clicked = (id) => {
         console.log(id)
          
-        axios.post('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app'+'/update_url', {
+        axios.post(process.env.REACT_APP_BACKEND_URL+'/update_url', {
             url: id,
             groupcode: localStorage.getItem("groupcode")
           })

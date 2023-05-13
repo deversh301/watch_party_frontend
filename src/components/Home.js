@@ -6,7 +6,7 @@ import {
     Link,
   } from "react-router-dom";
 
-import axios from 'axios';
+const axios = require('axios').default;
 
 
 export default function Home(props) {
@@ -23,7 +23,7 @@ export default function Home(props) {
 
     function handle() {
         if(value){
-            axios.post('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app'+'/add_url', {
+            axios.post(process.env.REACT_APP_BACKEND_URL+'/add_url', {
                 yt_url: value,
               })
               .then(function (response) {

@@ -6,9 +6,9 @@ import LeaveModel from './LeaveModel';
 import { useHistory } from 'react-router-dom';
 
 
-import axios from 'axios';
+const axios = require('axios').default;
 const { io } = require("socket.io-client");
-const socket = io('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app' );
+const socket = io(process.env.REACT_APP_BACKEND_URL);
 var Scroll = require('react-scroll');
 var scroll = Scroll.animateScroll;
 // eslint-disable-next-line
@@ -25,7 +25,7 @@ export default function Videocontainer() {
    const setting_videos = () => {
           let ytcode =  localStorage.getItem('groupcode')
           //let ytcode =  'AS1EW'
-          axios.get('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app'+'/get_url/'+ytcode)
+          axios.get(process.env.REACT_APP_BACKEND_URL+'/get_url/'+ytcode)
           .then(function (response) {
             let string = response.data.data.url
           //////console.log(string.replace('https://', '').split("/").slice(-1)[0] );
@@ -166,7 +166,7 @@ const toggleClass = () => {
 
 
   const updateJoinedUsers = () => {
-    axios.get('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app'+'/get_members/'+localStorage.getItem('groupcode') )
+    axios.get(process.env.REACT_APP_BACKEND_URL+'/get_members/'+localStorage.getItem('groupcode') )
     .then(function (response) {
       //////////////////console.log('api_response given here')
       // //////////////////console.log(response.data)

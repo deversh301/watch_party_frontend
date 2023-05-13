@@ -11,8 +11,9 @@ import {
 
 import { Form } from 'react-bootstrap';
 
+require('dotenv').config()
 
-console.log('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app')
+console.log(process.env.REACT_APP_BACKEND_URL)
 
 function App() {
   

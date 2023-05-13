@@ -2,7 +2,9 @@ import React, { useState , useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Header  from './Header';
 import { useHistory , Link } from 'react-router-dom';
-import axios from 'axios';
+
+
+const axios = require('axios').default;
 
 
 export default function User(props) {
@@ -24,11 +26,11 @@ export default function User(props) {
         console.log(group_code)
 
         if(group_code && username  ){
-            axios.get('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app'+'/get_url/'+group_code)
+            axios.get(process.env.REACT_APP_BACKEND_URL+'/get_url/'+group_code)
             .then(function (response) {
               console.log(response.data)
               if(response.data.data){
-                    axios.post('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app'+'/add_members', {
+                    axios.post(process.env.REACT_APP_BACKEND_URL+'/add_members', {
                         group_code: group_code,
                         username: username
                     })

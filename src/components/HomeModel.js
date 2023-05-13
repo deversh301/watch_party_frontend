@@ -6,11 +6,11 @@ import {
     useHistory 
   } from "react-router-dom";
 
-import axios from 'axios';
+const axios = require('axios').default;
 
 
   function handle(history) {
-        axios.post('https://watchparty-ji4z-4fi1z6r0p-deversh301.vercel.app'+'/add_members', {
+        axios.post(process.env.REACT_APP_BACKEND_URL+'/add_members', {
           group_code:  localStorage.getItem("groupcode"),
           username: 'Host'
       })
