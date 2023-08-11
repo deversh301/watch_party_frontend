@@ -254,12 +254,6 @@ export default function Youtubelist() {
       })
       .then(function (response) {
         console.log(response);
-        //  setShow(true);
-        //  setGroupcode(response.data.group_code)
-        //  localStorage.setItem("groupcode", response.data.group_code);
-        // //  localStorage.setItem("user_id", 'host'+response.data.group_code);
-        //  localStorage.setItem("username", 'Host');
-        //  props.token(response.data.group_code)
         socket.emit("refresh_page", {
           type: "1",
           group_code: localStorage.getItem("groupcode"),
