@@ -15,7 +15,7 @@ import { Form } from 'react-bootstrap';
 
 require('dotenv').config()
 
-console.log('http://192.168.1.8:8000')
+console.log('https://watchparty-server.onrender.com')
 
 function App() {
   

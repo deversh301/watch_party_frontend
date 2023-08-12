@@ -7,7 +7,7 @@ const axios = require("axios").default;
 
 function handle(history) {
   axios
-    .post("http://192.168.1.8:8000" + "/add_members", {
+    .post("https://watchparty-server.onrender.com" + "/add_members", {
       group_code: localStorage.getItem("groupcode"),
       username: "Host",
     })
