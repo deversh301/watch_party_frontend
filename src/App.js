@@ -2,7 +2,6 @@ import Videocontainer from './components/Videocontainer'
 import React, { useState , useEffect } from 'react';
 import Home from './components/Home'
 import User from './components/User'
-import Youtubelist  from './components/Youtubelist'
 import {
   BrowserRouter as Router,
   Switch,
@@ -42,10 +41,6 @@ function App() {
         <Route exact path="/join">
         <Home token={clickedButon} />
         </Route>
-        <Route exact path="/listing">
-        <Youtubelist  />
-        </Route>
-        
     </Switch> 
   </Router> 
   );

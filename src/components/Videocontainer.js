@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import YouTube, { YouTubePlayer } from "react-youtube";
 import Headervideo from "./Headervideo";
 import Chatbox from "./Chatbox";
-import LeaveModel from "./LeaveModel";
 import { useHistory } from "react-router-dom";
 
 const axios = require("axios").default;
@@ -475,14 +474,6 @@ export default function Videocontainer() {
               </div>
             </div>
           </div>
-
-          {
-            <LeaveModel
-              handleShow={handleShow}
-              show={showmodel}
-              handleClose={handleClose}
-            />
-          }
         </div>
       </div>
     </>
