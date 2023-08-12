@@ -25,13 +25,13 @@ export default function User(props) {
     if (group_code && username) {
       axios
         .get(
-          "https://watchparty-server.onrender.com" + "/get_url/" + group_code
+          "http://192.168.1.8:8000" + "/get_url/" + group_code
         )
         .then(function (response) {
           console.log(response.data);
           if (response.data.data) {
             axios
-              .post("https://watchparty-server.onrender.com" + "/add_members", {
+              .post("http://192.168.1.8:8000" + "/add_members", {
                 group_code: group_code,
                 username: username,
               })

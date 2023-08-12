@@ -76,9 +76,6 @@ export default function Chatbox(props) {
         <div className="row">
           <div className="col-6  content_align_left">
             <div className="search_you">
-              <Button onClick={props.handlemodel} className=" btn-primary">
-                <i className="fa-solid fa-magnifying-glass"></i>{" "}
-              </Button>
             </div>
           </div>
           <div className="col-6 content_align_right">

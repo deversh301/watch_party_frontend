@@ -2,12 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import YouTube, { YouTubePlayer } from "react-youtube";
 import Headervideo from "./Headervideo";
 import Chatbox from "./Chatbox";
-import LeaveModel from "./LeaveModel";
 import { useHistory } from "react-router-dom";
 
 const axios = require("axios").default;
 const { io } = require("socket.io-client");
-const socket = io("https://watchparty-server.onrender.com");
+const socket = io("http://192.168.1.8:8000");
 var Scroll = require("react-scroll");
 var scroll = Scroll.animateScroll;
 // eslint-disable-next-line
@@ -23,7 +22,7 @@ export default function Videocontainer() {
     let ytcode = localStorage.getItem("groupcode");
     //let ytcode =  'AS1EW'
     axios
-      .get("https://watchparty-server.onrender.com" + "/get_url/" + ytcode)
+      .get("http://192.168.1.8:8000" + "/get_url/" + ytcode)
       .then(function (response) {
         let string = response.data.data.url;
         //////console.log(string.replace('https://', '').split("/").slice(-1)[0] );
@@ -168,7 +167,7 @@ export default function Videocontainer() {
   const updateJoinedUsers = () => {
     axios
       .get(
-        "https://watchparty-server.onrender.com" +
+        "http://192.168.1.8:8000" +
           "/get_members/" +
           localStorage.getItem("groupcode")
       )
@@ -475,14 +474,6 @@ export default function Videocontainer() {
               </div>
             </div>
           </div>
-
-          {
-            <LeaveModel
-              handleShow={handleShow}
-              show={showmodel}
-              handleClose={handleClose}
-            />
-          }
         </div>
       </div>
     </>

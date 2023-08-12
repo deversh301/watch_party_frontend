@@ -18,7 +18,7 @@ export default function Home(props) {
   function handle() {
     if (value) {
       axios
-        .post("https://watchparty-server.onrender.com" + "/add_url", {
+        .post("http://192.168.1.8:8000" + "/add_url", {
           yt_url: value,
         })
         .then(function (response) {
